@@ -23,3 +23,26 @@ def Square(x, y):
         left(90)
     end_fill()
 
+# define function to
+# keep a check of index number
+def Numbering(x, y):
+    return int((x + 200) // 50 + ((y + 200) // 50) * 8)
+
+
+def Coordinates(count):
+    return (count % 8) * 50 - 200, (count // 8) * 50 - 200
+
+
+# define function
+# to make it interactive
+# user click
+def click(x, y):
+    spot = Numbering(x, y)
+    mark = state['mark']
+
+    if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+        state['mark'] = spot
+    else:
+        hide[spot] = False
+        hide[mark] = False
+        state['mark'] = None
